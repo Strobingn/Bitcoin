@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BitcoinTracker Pro</string>
+    <string name="live">LIVE</string>
+    <string name="disconnected">DISCONNECTED</string>
+    <string name="btc_usd">BTC / USD</string>
+</resources>
