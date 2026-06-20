@@ -12,12 +12,10 @@ jobs:
     name: Build Debug APK
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Set up JDK 17
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -34,13 +32,10 @@ jobs:
         with:
           gradle-home-cache-cleanup: true
 
-      - name: Make gradlew executable (if present)
-        run: chmod +x ./gradlew || true
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        run: gradle assembleDebug --no-daemon --stacktrace
 
-      - name: Upload Debug APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: BitcoinTrackerPro-debug
